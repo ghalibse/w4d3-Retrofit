@@ -12,6 +12,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.retrofitsimple.entities.Student;
+
 /**
  * Created by admin on 8/10/2016.
  */
@@ -24,11 +26,11 @@ public class MyDialogFragment extends DialogFragment {
         public void onDialogPositiveClick(DialogFragment dialog, String pass);
     }
 
-    public static MyDialogFragment newInstance(String name, int pos) {
+    public static MyDialogFragment newInstance(Student student) {
         MyDialogFragment frag = new MyDialogFragment();
         Bundle args = new Bundle();
-        args.putString("name", name);
-        args.putInt("position", pos);
+        args.putString("name", student.getName());
+        args.putString("pass", student.getPassword());
         frag.setArguments(args);
         return frag;
     }
