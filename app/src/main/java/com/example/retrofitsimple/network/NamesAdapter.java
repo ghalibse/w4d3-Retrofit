@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -47,11 +48,17 @@ public class NamesAdapter extends RecyclerView.Adapter<NamesAdapter.ViewHolder> 
 
         ImageView imageView = holder.imageViewName;
         Glide.with(mContext)
-//                .load("https://lh4.ggpht.com/wKrDLLmmxjfRG2-E-k5L5BUuHWpCOe4lWRF7oVs1Gzdn5e5yvr8fj-ORTlBF43U47yI=w300")
                 .load(student.getImageName())
                 .into(imageView);
 
-        Log.d(TAG, "onBindViewHolder: " + student.getImageName());
+        TextView ageView = holder.ageView;
+        String ageTxt = "Age: ".concat(String.valueOf(student.getAge()));
+        ageView.setText(ageTxt);
+
+        TextView gradeView = holder.gradeView;
+        String gradeTxt = "Grade: ".concat(String.valueOf(student.getGrade()));
+        gradeView.setText(gradeTxt);
+
     }
 
     @Override
@@ -63,6 +70,8 @@ public class NamesAdapter extends RecyclerView.Adapter<NamesAdapter.ViewHolder> 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
+        private  TextView ageView;
+        private  TextView gradeView;
         private TextView textViewName;
         private ImageView imageViewName;
 
@@ -71,6 +80,8 @@ public class NamesAdapter extends RecyclerView.Adapter<NamesAdapter.ViewHolder> 
 
             textViewName = (TextView) itemView.findViewById(R.id.l_item_txt);
             imageViewName = (ImageView) itemView.findViewById(R.id.l_item_img);
+            ageView = (TextView) itemView.findViewById(R.id.age_txt);
+            gradeView = (TextView) itemView.findViewById(R.id.grade_txt);
         }
     }
 }
