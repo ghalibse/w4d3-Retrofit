@@ -72,8 +72,8 @@ public class NamesAdapter extends RecyclerView.Adapter<NamesAdapter.ViewHolder> 
 
         private  TextView ageView;
         private  TextView gradeView;
-        private TextView textViewName;
-        private ImageView imageViewName;
+        private  TextView textViewName;
+        private  ImageView imageViewName;
 
         public ViewHolder(View itemView) {
             super(itemView);
